@@ -1,0 +1,18 @@
+<div class="col-sm-8 col-md-6 col-lg-6">
+	<div class="thumbnail">
+		<img class="room" src="/resources/icon-home-square.png"  />
+		<div class="caption">
+			<p class="lead">
+				<%= self.model.get('room').get('address') %>
+			</p>
+			<p>
+				<%= status === 'pending' ? '<span class="text-warning">Pending Host Decision</span>' : '' %>
+				<%= status === 'approved' ? '<span class="text-success">Approved</span>' : '' %>
+				<%= status === 'denied' ? '<span class="text-danger">Rejected</span>' : '' %>
+			</p>
+		</div>
+		<div class="text-center">
+			<a href="/room/<%= self.model.get('room').id %>/request" class="btn btn-primary btn-block">See</a>
+		</div>
+	</div>
+</div>

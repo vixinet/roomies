@@ -1,0 +1,174 @@
+<header id="pictures">
+	<div class="swiper-container">
+		<div class="swiper-wrapper"></div>
+		<div class="swiper-pagination"></div>
+	</div>
+</header>
+<nav class="navbar menu navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">
+				<img src="/resources/logo-full.png" />
+			</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="navbar-main">
+			<ul class="nav navbar-nav">
+				<li><a class="for-spy" href="#pictures">Photos</a></li>
+				<li><a class="for-spy" href="#summary">Summary</a></li>
+				<li><a class="for-spy" href="#details">Details</a></li>
+				<li><a class="for-spy" href="#questions">Questions</a></li>
+				<li><a class="for-spy" href="#request">Request</a></li>
+			</ul>
+
+			<form class="pull-right">
+				<% if( Parse.User.current() && Parse.User.current().get('profile') ) { %> 
+					<a href="/rooms" class="btn btn-default navbar-btn">Browse Rooms</a>
+					<a href="/account" class="btn btn-primary navbar-btn">My Account</a>
+				<% } else { %>
+					<a href="/rooms" class="btn btn-primary navbar-btn">Browse Rooms</a>
+				<% } %>
+			</form>
+		</div>
+	</div>
+</nav>
+<main>
+	<%
+		var link = Parse.Config.current().get('base_url') + 'room/' +  objectId;
+		var tweet = 'Room ' + surface + ' m2 on the ' + self.numberNth(floor) + ' floor in ' + self.getCityName(city) + ' for ' + rent + '€ per month.';
+	%>
+	<section id="summary" class="room-summary dark">
+		<div class="container">	
+			<div class="row">
+				<div class="col-sm-15 col-md-17 col-lg-18">
+					<p class="title lead"><%= title + ( gender === 'female' ? ' (girls only)' : gender === 'male' ? ' (men only)' : '' )%></p>
+					<p>
+						<%= self.nl2br(description) %>
+					</p>
+					<p style="margin-top: 20px;">Share this room for more visibility:</p>
+					<div class="social">
+						<div class="fb-share-button" data-href="<%= link %>" data-layout="button"></div>
+						<div class="fb-send" data-href="<%= link %>"></div>
+						<a data-external="true" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= encodeURIComponent(tweet) %>&amp;url=<%= encodeURIComponent(link) %>&amp;via=RoomiesFinland">Tweet</a>
+					</div>
+				</div>
+				<div class="col-sm-9 col-md-7 col-lg-6 text-center">
+					<div class="actions">
+						<p class="title lead"><%= surface %> m<sup>2</sup> on the <%= self.numberNth(floor) %> floor</p>
+						<p>Room available from <%= self.formatDateFullEn(from) %> until <%= self.formatDateFullEn(to) %></p>
+
+						<% if( self.isAdmin() ) { %> 
+							<!-- <button class="btn btn-default btn-block btn-lg btn-edit">Edit Room Info</button> -->
+							<button class="btn btn-default btn-block btn-lg btn-questions" scroll-to="#questions">Questions <span class="badge"></span></button>
+							<button class="btn btn-primary btn-block btn-lg btn-requests" scroll-to="#request">Roomie Requests <span class="badge"></span></button>
+						<% } else { %>
+							<button class="btn btn-primary btn-block btn-lg" scroll-to="#request"><%= self.request ? 'Roomie Request' : 'Send Roomie Request' %></button>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="details" class="room-details">
+		<div class="container">
+			<div class="row">
+				<div class="host text-center col-sm-12 col-md-6">
+					<div class="host-picture big icon" style="<%= typeof self.model.get('profile').get('profilePicture') !== typeof undefined && self.model.get('profile').get('profilePicture') ? 'background-image: url(' + self.model.get('profile').get('profilePicture').url() + ')' : '' %>"></div>
+					<p class="lead"><%= self.model.get('profile').get('displayName') %></p>
+					<p>
+						<%= self.nl2br(self.model.get('profile').get('about')) %>
+					</p>
+				</div>
+				<div class="location text-center col-sm-12 col-md-6 ">
+					<img class="icon big" src="/resources/icon-map.png" />
+					<p><%= address %></p>
+					<% if( typeof number !== typeof undefined ) { %>
+						<p>Apartment <%= number %></p>
+					<% } %>
+					<p><%= zipCode %> <%= self.getCityName(city) %></p>
+
+					<% var _address = encodeURI(address + ' ' + zipCode + ' ' + Parse.Config.current().get('CST_CITIES')[city].name ) %>
+
+					<a data-external="true" href="http://maps.google.com/?q=<%= _address %>" target="_blank">
+						<img src='http://maps.googleapis.com/maps/api/staticmap?center=<%= _address %>&amp;zoom=13&amp;size=300x200&amp;sensor=true&amp;markers=color:blue|<%= _address %>'>
+					</a>
+					<a data-external="true" href="http://maps.google.com/?q=<%= _address %>" target="_blank">View on Google Maps</a>
+
+				</div>
+				<div class="clearfix visible-sm-block"></div>
+				<div class="pricing text-center col-sm-12 col-md-6">
+					<img class="icon big" src="/resources/icon-money.png" />
+					<table class="table">
+						<tr>
+							<th>Rent</th>
+							<td><%= rent %>€ per month</td>
+						</tr>
+						<tr>
+							<th>Water Fee</th>
+							<td><%= waterFee %>€ per month</td>
+						</tr>
+						<tr>
+							<th>Deposit</th>
+							<td><%= deposit %>€</td>
+						</tr>
+					</table>
+				</div>
+				<div class="details col-sm-12 col-md-6">
+					<img class="icon big" src="/resources/icon-pick.png" />
+
+					<table class="table">
+						<tr>
+							<th>Furnished</th>
+							<td><%= features.apartment.furnished ? 'Yes' : 'No' %></td>
+						<tr>
+							<th>Balcony</th>
+							<td><%= features.apartment.balcony ? 'Yes' : 'No' %></td>
+						</tr>
+						<tr>
+							<th>Lift</th>
+							<td><%= features.building.lift ? 'Yes' : 'No' %></td>
+						</tr>
+						<tr>
+							<th>Pets allowed</th>
+							<td><%= features.apartment.pets ? 'Yes' : 'No' %></td>
+						</tr>
+						<tr>
+							<th>Sauna</th>
+							<td><%= features.apartment.sauna ? 'Yes' : features.building.sauna ? 'In the building' : 'No' %></td>
+						</tr>
+						<tr>
+							<th>Dishwasher</th>
+							<td><%= features.apartment.dishwasher ? 'Yes' : 'No' %></td>
+						</tr>
+						<tr>
+							<th>Washing machine</th>
+							<td><%= features.apartment.washing ? 'Yes' : features.building.washing ? 'In the building' : 'No' %></td>
+						</tr>
+						<tr>
+							<th>Dryer</th>
+							<td><%= features.apartment.dryer ? 'Yes' : features.building.dryer ? 'In the building' : 'No' %></td>
+						</tr>
+						<tr>
+							<th>Storage Room</th>
+							<td><%= features.building.storage ? 'Yes' : 'No' %></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="questions" class=" room-qa dark">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-15 col-md-17 col-lg-18 questions" card="questions"></div>
+				<div class="col-sm-9 col-md-7 col-lg-6 text-center ask" card="question-create"></div>
+			</div>
+		</div>
+	</section>
+	<section id="request" class="room-request" card="request"></section>
+</main>

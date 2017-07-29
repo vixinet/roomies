@@ -1,0 +1,33 @@
+{
+  "name": "Roomies",
+  "version": "1.1.0",
+  "authors": [
+    "Daniel Costa <costa@vixinet.ch>"
+  ],
+  "description": "Web Application for www.roomies.fi",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "www.roomies.fi",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "public",
+    "src/vendor"
+  ],
+  "dependencies": {
+    "animate.css": "3.5.0",
+    "bootstrap": "3.3.6",
+    "bootstrap-datepicker": "1.5.1",
+    "jquery": "2.1.4",
+    "parse": "1.5.0",
+    "backbone": null,
+    "requirejs": "2.1.22",
+    "requirejs-plugins": "1.0.3",
+    "requirejs-text": "2.0.14",
+    "seiyria-bootstrap-slider": "6.0.6",
+    "underscore": "1.8.3",
+    "jquery-mask-plugin": "1.13.4",
+    "swiper": "3.2.7",
+    "less": null
+  }
+}

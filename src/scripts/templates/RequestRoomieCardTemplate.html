@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title text-center">Hi <%= this.model.get('profile').get('firstname') %></h3>
+	</div>
+	<div class="panel-body text-center">
+		<% if( status === 'pending' ) { %>
+			<p>Your request is currently <strong>pending approval</strong>. Until the host chooses his future Roomie, you communicate through chat on the right.</p>
+			<p>You can see the information shared with the host on the right side of this section.</p>
+			<p>If you have a question you think might interest others, use the Q&amp;A section above. This website is based on the community effort ;-)</p>
+		<% } %>
+		<% if( status === 'approved' ) { %>
+			<p>Well done! Your Roomie Resquest is <strong>accepted</Strong> by the host! You can contact your new Roomie with the information below.</p>
+			<p>As you do, the host has access to your contact information from the moment he approved you.</p>
+		<% } %>
+		<% if( status === 'denied' ) { %>
+			<p>Oops... Sorry, the host denied your request or picked someone else. But do not worry! We have plenty of rooms. <a href="/rooms">Check it out</a>!</p>
+		<% } %>
+	</div>
+	<% if( status === 'approved' ) { %>
+		<table class="table table-bordered">
+			<tr>
+				<th>Name</th>
+				<td><%= self.model.get('room').get('profile').get('firstname') %> <%= self.model.get('room').get('profile').	get('lastname') %></td>
+			</tr>
+			<tr>
+				<th>Phone</th>
+				<td><%= self.model.get('room').get('profile').get('phone') %></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><a data-external="true" href="mailto:<%= self.model.get('room').get('profile').get('user').get('email') %>"><%= self.model.get('room').get('profile').get('user').get('email') %></a></td>
+			</tr>
+		</table>
+	<% } %>
+</div>

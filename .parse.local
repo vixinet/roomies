@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "MYA-v1-QA": {
+      "applicationId": "WEyqooufzSqdPi0HptgY2W4kG30ESFgCpOXH06vY"
+    },
+    "_default": {
+      "link": "MYA-v1-QA"
+    }
+  }
+}

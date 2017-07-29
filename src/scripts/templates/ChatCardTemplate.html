@@ -1,0 +1,15 @@
+<div class="panel panel-default chat">
+	<div class="panel-heading">
+		<h3 class="panel-title">Chatroom</h3>
+	</div>
+	<div class="panel-body"></div>
+	<% if( status === 'pending' ) { %>
+		<div class="panel-footer">
+			<form class="form-chat">
+				<div class="form-group">
+					<input class="form-control" type="text" name="message" placeholder="(press enter to send message)" />
+				</div>
+			</form>
+		</div>
+	<% } %>
+</div>

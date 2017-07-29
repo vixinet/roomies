@@ -1,0 +1,116 @@
+<header>
+	<div class="wrapper">
+		<div class="container">
+			<p class="lead">As an erasmus student who doesn't speak Finnish (yet), it is not always easy to find a room and roomates in Finland. The information is out there on the internet, most part of the time in Finnish, incomplete or in platforms not adapted for the task of finding a roomate. <strong>Roomies.fi</strong> tries to solve this problem by giving to students a media to find easily rooms and roomates in Finland.</p>
+			<a href="/rooms" class="btn btn-default btn-lg">Browse Rooms</a>
+		</div>
+	</div>
+</header>
+<nav class="navbar menu navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">
+				<img src="/resources/logo-full.png" />
+			</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="navbar-main">
+			<ul class="nav navbar-nav">
+				<li><a class="for-spy" href="#concept">The Concept</a></li>
+				<li><a class="for-spy" href="#find-roomie">Find Roomie</a></li>
+				<li><a class="for-spy" href="#find-room">Find Room</a></li>
+			</ul>
+
+			<form class="pull-right">
+				<% if( Parse.User.current() && Parse.User.current().get('profile') ) { %>
+					<a href="/account" class="btn btn-primary navbar-btn">My Account</a>
+				<% } else { %>
+					<a href="/account" class="btn btn-primary navbar-btn">Sign In</a>
+				<% } %>
+			</form>
+		</div>
+	</div>
+</nav>
+<main class="text-center">
+	<section id="concept">
+		<div class="container">
+			<h1>The Concept</h1>
+			<div class="row">
+				<div class="col-sm-9 col-sm-offset-2 col-md-7 col-md-offset-3 col-lg-6 col-lg-offset-4">
+					<img class="icon big" src="/resources/icon-roomie.png" />
+					<p class="lead">Find me a Roomie</p>
+					<p>I have a room to rent and I'm looking for the best roomate in the world.</p>
+					<button class="btn btn-default" scroll-to="#find-roomie">How it works</button>
+				</div>
+				<div class="col-sm-9 col-sm-offset-2 col-md-7 col-md-offset-4 col-lg-6 col-lg-offset-4">
+					<img class="icon big" src="/resources/icon-home.png" />
+					<p class="lead">Give me a room</p>
+					<p>I'm moving to Finland (or already there) and I want to find a shared apartment.</p>
+					<button class="btn btn-default" scroll-to="#find-room">How it works</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="find-roomie" class="dark">
+		<div class="container">
+			<h1>Find a Roomie</h1>
+			<div class="row">
+				<div class="col-sm-12 col-md-6">
+					<img class="icon big" src="/resources/icon-keyboard.png" />
+					<p class="lead">List your room</p>
+					<p>Add your room by filling our online form. This will allow your room to be visible on the website and have the maximum coverage.</p>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<img class="icon big" src="/resources/icon-letter.png" />
+					<p class="lead">Receive Roomie requests</p>
+					<p>Roomies will be able to see your room information, ask you questions, interact with you privately and send you "Roomies Requests"</p>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<img class="icon big" src="/resources/icon-pick.png" />
+					<p class="lead">Choose your  Roomie</p>
+					<p>Choose through the requests the best Roomie for your flat. Don't worry about the other requests, we take care of warning them they were not picked.</p>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<img class="icon big" src="/resources/icon-contact.png" />
+					<p class="lead">Exchange contacts</p>
+					<p>We will comunicate you your new Roomie contact information and send your information to him. Your contact information stay private until you find your Roomie.</p>
+				</div>
+				
+			</div>
+			<a href="/room/create" class="btn btn-primary btn-lg">List My Room</a>
+		</div>
+	</section>
+	<section id="find-room">
+		<div class="container">
+			<h1>Find a Room</h1>
+			<div class="row">
+				<div class="col-sm-12 col-md-6">
+					<img class="icon big" src="/resources/icon-search.png" />
+					<p class="lead">Browse the rooms</p>
+					<p>Browse the rooms available to find the perfect match for you. Use our filters to prioritize what is important for you! Budget, space, features, filter on what matters for you and find the perfect room.</p>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<img class="icon big" src="/resources/icon-chat.png" />
+					<p class="lead">Ask questions</p>
+					<p>Still some questions concerning the room or your future roomates? Simply ask a question and wait for an answer. All the questions are public so you can read through the ones already asked.</p>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<img class="icon big" src="/resources/icon-letter-open.png" />
+					<p class="lead">Send a Roomie Request</p>
+					<p>You found the perfect room? Send a Roomie Request to your (maybe) future roomate. Once he will choose his future roomate, you will be notified by email if you are the one.</p>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<img class="icon big" src="/resources/icon-contact-orange.png" />
+					<p class="lead">Exchange contacts</p>
+					<p>We will comunicate you your new Roomie contact information and send your information to him. Your contact information stay private until you find your Roomie.</p>
+				</div>
+			</div>
+			<a href="/rooms" class="btn btn-primary btn-lg">Browse Rooms</a>
+		</div>
+	</section>
+</main>

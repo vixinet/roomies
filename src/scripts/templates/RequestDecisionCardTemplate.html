@@ -1,0 +1,58 @@
+<div class="panel panel-primary">
+	<% if( status !== 'pending' ) { %>
+		<div class="panel-heading">
+			<h3 class="panel-title text-center">Decision Info</h3>
+		</div>
+	<% } %>
+	<div class="panel-body  text-center">
+		<% if( status === 'approved' ) { %>
+			<p>Well done! You can contact your new Roomie with the information below.</p>
+			<p>As you do, your Roomie has access to your contact information from the moment you approved him.</p>
+		<% } %>
+		<% if( status === 'pending' ) { %>
+			<div class="form-group col-sm-12 col-md-24">
+				<button class="btn btn-success btn-approve btn-block">Approve Roomie</button>
+			</div>
+			<div class="form-group col-sm-12 col-md-24">
+				<button class="btn btn-danger btn-deny btn-block">Reject Roomie</button>
+			</div>
+		<% } %>
+		<% if( status === 'denied' ) { %>
+			<p>You <strong class="text-danger">rejected</strong> this Roomie Request
+		<% } %>
+	</div>
+	<% if( status === 'approved' ) { %>
+		<table class="table table-bordered">
+			<tr>
+				<th>Name</th>
+				<td><%= self.model.get('profile').get('firstname') %> <%= self.model.get('profile').get('lastname') %></td>
+			</tr>
+			<tr>
+				<th>Phone</th>
+				<td><%= self.model.get('profile').get('phone') %></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><a data-external="true" href="mailto:<%= self.model.get('profile').get('user').get('email') %>"><%= self.model.get('profile').get('user').get('email') %></a></td>
+			</tr>
+		</table>
+	<% } %>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Confirmation</h4>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure you want to <strong class="action"></strong> the Roomie request of <strong class="name"><%= self.model.get('profile').get('firstname') %></strong>?</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Not now</button>
+				<button type="button" class="btn btn-primary save">Yes I do</button>
+			</div>
+		</div>
+	</div>
+</div>

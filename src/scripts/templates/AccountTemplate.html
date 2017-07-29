@@ -1,0 +1,50 @@
+<header id="profile">
+	<div class="wrapper">
+		<div class="text-center">
+			<div class="host-picture big icon" style="<%= typeof profilePicture !== typeof undefined && profilePicture ? 'background-image: url(' + profilePicture.url + ')' : '' %>"></div>
+				<p class="lead">Hi <%= firstname %></p>
+			<a href="/sign-out" class="btn btn-default btn-lg">Sign out</a>
+		</div>
+	</div>
+</header>
+<nav class="navbar menu navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">
+				<img src="/resources/logo-full.png" />
+			</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="navbar-main">
+			<ul class="nav navbar-nav">
+				<li><a class="for-spy" href="#profile">Profile</a></li>
+				<li><a class="for-spy" href="#requests">My Requests</a></li>
+				<li><a class="for-spy" href="#rooms">My Rooms</a></li>
+			</ul>
+
+			<form class="pull-right">
+				<a href="/rooms" class="btn btn-default navbar-btn">Browse Rooms</a>
+				<a href="/room/create" class="btn btn-primary navbar-btn">List My Room</a>
+			</form>
+		</div>
+	</div>
+</nav>
+<main>
+	<section id="requests" class="dark">
+		<div class="container">
+			<p class="lead text-center" id="requests">My Requests</p>
+			<div card="requests"></div>
+		</div>
+	</section>
+	<section id="rooms">
+		<div class="container">
+			<p class="lead text-center" id="rooms">My Rooms</p>
+			<div card="rooms"></div>
+		</div>
+	</section>
+</main>

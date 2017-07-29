@@ -1,0 +1,94 @@
+<header>
+	<div class="wrapper">
+		<div class="container">
+			<p class="lead">Now you have your account, lets setup some information for your profile.</p>
+		</div>
+	</div>
+</header>
+<nav class="navbar menu navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">
+				<img src="/resources/logo-full.png" />
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="navbar-main">
+			<ul class="nav navbar-nav">
+				<li><a class="for-spy" href="#profile">Profile Creation</a></li>
+			</ul>
+			<form class="pull-right">
+				<a href="/rooms" class="btn btn-default navbar-btn">Browse Rooms</a>
+			</form>
+		</div>
+	</div>
+</nav>
+<main class="text-center">
+	<section id="profile">
+		<form class="container">
+			<div class="row">
+				<div class="col-sm-24 col-sm-offset-0 col-md-18 col-md-offset-3 col-lg-16 col-lg-offset-4">
+					<div class="alert alert-info text-center col-sm-12 col-sm-offset-6" role="alert">
+						Your contact information are given to your future Roomie after <strong>you</strong> accept his Roomie request. We never communicate this information to third persons.
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-24 col-sm-offset-0 col-md-18 col-md-offset-3 col-lg-16 col-lg-offset-4">
+					<div class="host-picture big icon"></div>
+					<div class="text-center form-group">
+						<button type="button" for="profilePicture" class="btn-upload btn btn-default btn-sm">Upload my own picture</button>
+						<input type="file" id="profilsePicture" name="profilePicture" delegate-error="true" style="display:none" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-24 col-sm-offset-0 col-md-18 col-md-offset-3 col-lg-16 col-lg-offset-4">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-24 col-sm-8 control-label" for="firstname">First name</label>
+							<div class="col-sm-24 col-sm-8">
+								<input class="form-control" type="text" id="firstname" name="firstname" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-24 col-sm-8 control-label" for="lastname">Last name</label>
+							<div class="col-sm-24 col-sm-8">
+								<input class="form-control" type="text" id="lastname" name="lastname" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-24 col-sm-8 control-label">Display name</label>
+							<div class="col-sm-24 col-sm-8">
+								<p class="form-control-static display-name"></p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-24 col-sm-8 control-label" for="phone">Phone</label>
+							<div class="col-sm-24 col-sm-8">
+								<input class="form-control" type="text" id="phone" name="phone" placeholder="Ex. +358 46 6203017" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-24 col-sm-8 control-label" for="about">Tell us about you</label>
+							<div class="col-sm-24 col-sm-14">
+								<textarea class="form-control" rows="8" id="about" name="about" placeholder="Tell your future roomie a bit about yourself. Example: Hi, I'm Daniel and I live in Helsinki for now 2 years. I like boating and surfing. I'm originally from Switzerland."></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-24 col-sm-offset-0 col-md-18 col-md-offset-3 col-lg-16 col-lg-offset-4">
+					<div class="form-group">
+						<input class="btn btn-primary btn-lg" type="submit" value="Create Profile" />
+					</div>
+				</div>
+			</div>
+		</form>
+	</section>
+</main>

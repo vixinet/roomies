@@ -1,0 +1,21 @@
+<div class="text-center">
+	<img src="/resources/icon-target.png" class="icon big" />
+	<div class="ask">
+		<p class="title lead">Ask the Host</p>
+		<p>Something isn't clear? Just ask the host, once he'll answer you'll be notified.</p>
+		<form>
+			<div class="form-group">
+				<input class="form-control" type="text" name="email" placeholder="Your email" value="<%= Parse.User.current() ? Parse.User.current().get('email') : '' %>"/>
+			</div>
+			<div class="form-group">
+				<textarea class="form-control" name="question" rows="5" placeholder="Something isn't clear? Ask the host your question and once he answers to it we will notify you by email!"/>
+			</div>
+			<input type="submit"  class="btn btn-default" value="Ask a question" />
+		</form>
+	</div>
+	<div class="confirm" style="display:none">
+		<p>Thank you for your question. We will send you an email as soon as the host answers to your question!</p>
+		<button class="btn btn-default again">Ask another question</button>
+	</div>
+
+</div>

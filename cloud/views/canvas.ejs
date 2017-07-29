@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title><%= title %></title>
+		
+		<meta property="og:locale"       content="en_US" />
+		<meta property="og:type"         content="website" />
+		<meta property="og:title"        content="<%= social.title ? social.title : '' %>" />
+		<meta property="og:description"  content="<%= social.description ? social.description : '' %>" />
+		<!-- <meta property="og:url"          content="<%= base_url %>" /> -->
+		<meta property="fb:app_id"       content="<%= social.facebook_app_id %>" />	
+		<% imgs.fb.forEach(function(i) { %>
+		<meta property="og:image"        content="<%= i %>" />
+		<% }) %>
+
+		<meta name="twitter:card"        content="summary_large_image" />
+		<meta name="twitter:site"        content="<%= social.twitter_account %>" />
+		<meta name="twitter:creator"     content="<%= social.twitter_account %>" />
+		<meta name="twitter:title"       content="<%= social.title %>" />
+		<meta name="twitter:description" content="<%= social.description %>" />
+		<meta name="twitter:url"         content="<%= base_url %>" />
+		<meta name="twitter:image:src"   content="<%= imgs.twitter %>" />
+
+		<link rel="stylesheet"    href="/roomies.min.css"       type="text/css" />
+		<link rel="shortcut icon" href="/resources/favicon.ico" type="image/x-icon" />
+		<link rel="icon"          href="/resources/favicon.ico" type="image/x-icon" />
+		<link rel="image_src"     href="<%= imgs.global %>"     type="image/jpeg" />
+
+		<script type="text/javascript">
+			window.dvpt = true;
+			window.pushState = true;
+		</script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<div card="footer"></div>
+		<div id="fb-root"></div>
+		<script data-main="/roomies.min.js" src="/require.js"></script>
+	</body>
+</html>

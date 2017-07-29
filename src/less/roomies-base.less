@@ -1,0 +1,59 @@
+* {
+	font-family: "Avenir", "Helvetica", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 100;
+}
+
+body {
+	background-color: #222;
+	position: relative;
+}
+
+.size {
+	top: 10px;
+	left: 10px;
+	color: red;
+	border: 1px solid red;
+	position: fixed;
+	display: none;
+	padding: 10px;
+	z-index: 999;
+}
+
+.v-align {
+	* {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.navbar {
+	margin-bottom: 0px;
+	z-index: 3;
+	border-radius: 0px;
+
+	&.menu {
+		&.affix {
+			top: 0px;
+			width: 100%;
+		}
+	}
+	
+	.navbar-brand {
+		padding: 10px;
+		margin-right: 20px;
+		img {
+			max-height: 100%;
+		}
+	}
+
+	form, .btn {
+		margin-bottom: 0px;
+	}
+}
+
+.twitter-share-button[style], .twitter-follow-button[style] { 
+	vertical-align: text-bottom !important; 
+}

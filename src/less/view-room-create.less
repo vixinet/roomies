@@ -1,0 +1,55 @@
+.view-room-create {
+	header {
+		.header-with-swiper();
+
+		.swiper-container .swiper-slide:first-child {
+			width: 100%;
+			height: 100%;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+
+			background-position: bottom center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-image: url(../resources/header-room-create.png);
+
+			&:after {
+				background: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) );
+				background: rgba(0, 0, 0, 0.3);
+				content: "";
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 1;
+			}
+
+			* {
+				z-index: 2;
+			}
+
+		}
+	}
+
+	@media screen and (max-width: @screen-md-max) {
+		section .btn-primary {
+			margin: 45px auto 0px auto;
+		}
+
+		.location label,
+		.host label {
+			.text-left();
+		}
+	}
+}

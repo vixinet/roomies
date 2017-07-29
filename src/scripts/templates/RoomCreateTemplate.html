@@ -1,0 +1,238 @@
+<header id="pictures">
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<div class="text-center">
+					<div class="form-group">
+						<button class="btn btn-upload btn-default btn-lg" for="photo">Click to upload photo</button>
+						<input type="file" id="photo" name="photo" delegate-error="true" style="display:none" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+</header>
+<nav class="navbar menu navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">
+				<img src="/resources/logo-full.png" />
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="navbar-main">
+			<ul class="nav navbar-nav">
+				<li><a class="for-spy" href="#pictures">Photos</a></li>
+				<li><a class="for-spy" href="#summary">Summary</a></li>
+				<li><a class="for-spy" href="#details">Details</a></li>
+			</ul>
+			<form class="pull-right">
+				<a href="/rooms" class="btn btn-default navbar-btn">Browse Rooms</a>
+				<a href="/account" class="btn btn-primary navbar-btn">My Account</a>
+			</form>
+		</div>
+	</div>
+</nav>
+<main>
+	<form>
+		<section id="summary" class="room-summary dark">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-15 col-md-17 col-lg-18">
+						<div class="form-group">
+							<label class="control-label" for="title">Title of your posting</label>
+							<input class="form-control" type="text" id="title" name="title" placeholder="Exemple: Room down town, 5 min from main stations" />
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="title">Description of your room</label>
+							<textarea class="form-control" id="description" name="description" rows="12" placeholder="Information about your room you can't fit in the fields bellow. No need to present yourself, it comes just after."></textarea>
+						</div>
+					</div>
+					<div class="col-sm-9 col-md-7 col-lg-6">
+						<div class="actions">
+							<div class="form-group">
+								<label class="control-label" for="from">Rental period</label>
+								<div class="input-group input-daterange" data-provide="datepicker">
+									<input class="form-control" type="text" id="from" name="from" />
+									<span class="input-group-addon">to</span>
+									<input class="form-control" type="text" id="to" name="to" data-date-autoclose="true" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label" for="rent">Rent</label>
+								<div class="input-group">
+									<span class="input-group-addon">€</span>
+									<input class="form-control" type="number" id="rent" name="rent" />
+									<span class="input-group-addon">/mth</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="waterFee" class="control-label">Water Fee</label>
+								<div class="input-group">
+									<span class="input-group-addon">€</span>
+									<input class="form-control" type="number" id="waterFee" name="waterFee" />
+									<span class="input-group-addon">/mth</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="deposit" class="control-label">Deposit</label>
+								<div class="input-group">
+									<span class="input-group-addon">€</span>
+									<input class="form-control" type="number" id="deposit" name="deposit" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="deposit" class="control-label">Roomie Gender</label>
+								<select class="form-control" name="gender" id="gender">
+									<option value="both">Anyone</option>
+									<option value="female">Girls only</option>
+									<option value="male">Males only</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="details" class="room-details">
+			<div class="container">
+				<div class="row">
+					<div class="location col-sm-8 col-sm-offset-2">
+						<img class="icon big" src="/resources/icon-map.png" />
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<label class="col-sm-24 col-md-8 control-label" for="city">City</label>
+								<div class="col-sm-24 col-md-16">
+									<select class="form-control" id="city" name="city"></select>
+								</div>
+							</div>
+							<div class="form-group" style="display:none">
+								<label class="col-sm-24 col-md-8 control-label" for="district">District</label>
+								<div class="col-sm-24 col-md-16">
+									<select class="form-control" id="district" name="district"></select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-24 col-md-8 control-label" for="address">Address</label>
+								<div class="col-sm-24 col-md-16">
+									<input class="form-control" type="text" id="address" name="address" placeholder="Example: Lönnrotinkatu 32D"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-24 col-md-8 control-label" for="number">Apartment</label>
+								<div class="col-sm-24 col-md-10">
+									<input class="form-control" type="number" id="number" name="number" placeholder="Example: 46"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-24 col-md-8 control-label" for="zipCode">Zip Code</label>
+								<div class="col-sm-24 col-md-10">
+									<input class="form-control" type="text" id="zipCode" name="zipCode" placeholder="Example: 00180"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-24 col-md-8 control-label" for="floor">Floor</label>
+								<div class="col-sm-24 col-md-10">
+									<input class="form-control" type="number" id="floor" name="floor" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-24 col-md-8 control-label" for="surface">Surface</label>
+								<div class="col-sm-24 col-md-10">
+									<div class="input-group">
+										<input class="form-control" type="number" id="surface" name="surface" />
+										<span class="input-group-addon">m<sup>2</sup></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="details col-sm-8 col-sm-offset-4">
+						<img class="icon big" src="/resources/icon-pick.png" />
+						<div class="col-sm-24 col-lg-12">
+							<label class="control-label bold">In the apartment</label>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="apartment.furnished"> Furnished
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="apartment.balcony"> Balcony
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="apartment.pets"> Pets allowed
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="apartment.dishwasher"> Dishwasher
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="apartment.washing"> Washing machine
+								</label>
+							</div>
+
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="apartment.dryer"> Dryer
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="apartment.sauna"> Sauna
+								</label>
+							</div>
+						</div>
+						<div class="col-sm-24 col-md-12">
+							<label class="control-label bold">In the building</label>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="building.washing"> Washing machine
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="building.dryer"> Dryer
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="building.sauna"> Sauna
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="building.lift"> Lift
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="building.storage"> Storage Room
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-sm-24">
+						<div class="display-messages"></div>
+						<div class="form-group">
+							<input type="submit" class="btn btn-primary btn-lg" value="List My Room" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</form>
+</main>

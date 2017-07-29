@@ -1,0 +1,70 @@
+.view-room {
+
+	header.rented {
+		.view-home-header();
+		background-image: url(../resources/header-room-rented.jpg);
+	}
+
+	header {
+		.header-with-swiper();
+	}
+
+	.room-links {
+		padding-bottom: 0px;
+
+		@media screen and (max-width: @screen-xs-max) {
+			.text-center();
+		}	
+	}
+
+	.room-summary {
+		.actions {
+			p {
+				margin-bottom: 20px;
+			}
+
+			@media screen and (max-width: @screen-xs-max) {
+				.lead {
+					margin-top: 40px;
+				}
+			}
+		}
+		
+	}
+
+	.room-details {
+		.location {
+			
+			p {
+				margin-bottom: 0px;
+			}
+
+			img + p {
+				font-weight: 600;
+			}
+
+			p + a {
+				margin-top : 20px;
+
+				img {
+					width: 100%;
+					max-width: 300px;
+					border-radius: 6px;
+				}
+			}
+
+			a {
+				display: block;
+				margin-top:20px;
+			}
+		}
+	}
+
+
+	@media screen and (max-width: @screen-xs-max) {
+		.questions {
+			.text-center();
+			margin-bottom: 40px;
+		}
+	}
+}

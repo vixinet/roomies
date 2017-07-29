@@ -1,0 +1,30 @@
+<!-- 
+	Because  we use this cards in more than one place, 
+	we added the <div class="col-sm-12 col-md-8 col-lg-8">
+	into the find() of the query
+-->
+<div class="thumbnail">
+	<img class="room" src="/resources/icon-home-square.png"  />
+	<div class="caption">
+		<p class="lead">
+			<%= rent %>€ / month
+			<span class="pull-right"><%= surface %>m<sup>2</sup></span>
+		</p>
+		<p>
+			Available <%= self.formatDateFullEn(from) %>
+		</p>
+		<p>
+			<%= self.getDistrictName(city, district) %>, <%= self.getCityName(city) %>
+			<% if( gender === 'male') { %> <img class="gender pull-right" src="/resources/icon-male.png" /> <% } %> 
+			<% if( gender === 'female') { %> <img class="gender pull-right" src="/resources/icon-female.png" /> <% } %> 
+			<% if( gender === 'both') { %> 
+				<img class="gender pull-right" src="/resources/icon-male.png" />
+				<img class="gender pull-right" src="/resources/icon-female.png" />
+			<% } %> 
+			
+		</p>
+	</div>
+	<div class="text-center">
+		<a href="/room/<%= objectId %>" class="btn btn-primary btn-block">See more</a>
+	</div>
+</div>

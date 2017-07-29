@@ -1,0 +1,14 @@
+<div class="text-center">
+	<p class="lead">Give us your feedback</p>
+	<form>
+		<div class="form-group">
+			<input class="form-control" type="text" name="email" placeholder="Email" value="<%= Parse.User.current() ? Parse.User.current().get('email') : '' %>" />
+		</div>
+		<div class="form-group">
+			<textarea rows="4" class="form-control" name="feedback" placeholder="We value the feedback of our users, let us know what you would like to see improved"></textarea>
+		</div>
+		<div class="form-group">
+			<input type="submit" class="btn btn-default" value="Send Feedback" />
+		</div>
+	</form>
+</div>

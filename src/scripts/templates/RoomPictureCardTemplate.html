@@ -1,0 +1,10 @@
+<img src="<%= file.url %>" />
+<div class="dropdown">
+	<button class="btn btn-default dropdown-toggle" type="button" id="menu-<%= objectId %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		actions
+		<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="menu-<%= objectId %>">
+		<li><a data-external="true" href="<%= file.url %>" target="_blank">Open new tab</a></li>
+	</ul>
+</div>
